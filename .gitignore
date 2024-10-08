@@ -1,2 +1,9 @@
 .venv/
+# Ignore cache files
+__pycache__/
+*.pyc
 
+# Ignore media files
+media/
+
+db.sqlite3
