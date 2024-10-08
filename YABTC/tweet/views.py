@@ -45,3 +45,11 @@ def tweet_delete(request, tweet_id):
         tweet.delete()
         return redirect('tweet_list')
     return render(request,'tweet_confrim_delete.html', {'tweet': tweet})
+
+def tweet_retweet(request, tweet_id):
+    original_tweet = get_object_or_404(Tweet, id=tweet_id)
+    if request.method == "POST":
+        retweet = Tweet(user=request.user, retweet=original_tweet)
+        retweet.save()
+        return redirect('tweet_list')
+    return render(request, 'tweet_confirm_retweet.html', {'tweet': original_tweet})
