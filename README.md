@@ -87,6 +87,8 @@ Feel free to fork the project, submit pull requests, or report issues. Contribut
  
 - When attempting to delete a tweet, a prompt should ask for confirmation: "Are you sure you want to delete this tweet?"
 
+- User authentication is not implemented yet.
+
 ## License
 This project is licensed under the MIT License.
 
