@@ -34,24 +34,37 @@
         <div class="grid grid-cols-1 gap-4">
             {% if tweets %}
                 {% for tweet in tweets %}
-                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 fade-in">
                         <div class="flex items-start space-x-4">
                             {% if tweet.photo %}
-                            <img src="{{ tweet.photo.url }}" alt="Tweet image" class="h-72 w-72 rounded-lg object-cover"> 
-                        {% endif %}                        
+                                <img src="{{ tweet.photo.url }}" alt="Tweet image" class="h-72 w-72 rounded-lg object-cover"> 
+                            {% endif %}
                             <div class="flex-1">
                                 <h3 class="text-lg font-bold text-blue-400">{{ tweet.user.username }}</h3>
-                                <p class="text-gray-300">{{ tweet.text }}</p> 
+                                <p class="text-gray-300">{{ tweet.text }}</p>
                                 <div class="mt-2 flex space-x-4">
-                                    <a href="{% url 'tweet_edit' tweet.id %}" class="text-green-500 hover:underline">Edit</a>
+                                    <a href="{% url 'tweet_edit' tweet.id %}" class="text-green-500 hover:underline hover-effect">Edit</a>
                                     <form action="{% url 'tweet_delete' tweet.id %}" method="POST" style="display:inline;">
                                         {% csrf_token %}
-                                        <button type="submit" class="text-red-500 hover:underline">Delete</button>
+                                        <button type="submit" class="text-red-500 hover:underline hover-effect">Delete</button>
                                     </form>
                                     <form action="{% url 'tweet_retweet' tweet.id %}" method="POST" style="display:inline;">
                                         {% csrf_token %}
-                                        <button type="submit" class="text-blue-500 hover:underline">Retweet</button>
+                                        <button type="submit" class="text-blue-500 hover:underline hover-effect">Retweet</button>
                                     </form>
+                                </div>
+                                <div class="mt-2">
+                                    <form action="{% url 'tweet_like' tweet.id %}" method="POST" class="inline">
+                                        {% csrf_token %}
+                                        <button type="submit" class="text-white bg-blue-500 px-2 py-1 rounded-lg hover:bg-blue-700 hover-effect">
+                                            {% if request.user in tweet.likes.all %}
+                                                Unlike
+                                            {% else %}
+                                                Like
+                                            {% endif %}
+                                        </button>
+                                    </form>
+                                    <span class="ml-2 text-gray-400">{{ tweet.likes.count }} like{% if tweet.likes.count != 1 %}s{% endif %}</span>
                                 </div>
                             </div>
                         </div>
