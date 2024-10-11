@@ -24,9 +24,9 @@
 - Basic profile management.
 
 ## Tech Stack
-- **Backend**: Django 4.x
+- **Backend**: Django 5.x
 - **Frontend**: HTML, CSS (Tailwind CSS for styling), JavaScript
-- **Database**: SQLite (default for Django)
+- **Database**: Postgre =
 - **Version Control**: Git, GitHub
 
 ## Installation Guide
