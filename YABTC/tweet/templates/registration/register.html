@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-8">
+    <h2 class="text-2xl font-bold mb-4">Register</h2>
+    <form method="POST" enctype="multipart/form-data" class="bg-gray-800 p-6 rounded-md shadow-md">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields here -->
+        <button type="submit" class="bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600 transition-transform hover:scale-105 duration-200">
+            Register
+        </button>
+    </form>
+</div>
+{% endblock %}

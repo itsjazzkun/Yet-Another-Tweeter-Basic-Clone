@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static %}
 {% load widget_tweaks %}
 
 {% block content %}
@@ -23,7 +24,7 @@
             </div>
 
             <div class="flex space-x-4">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 hover-effect">
                     Add Tweet
                 </button>
                 <a href="{% url 'tweet_list' %}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-700">Back to Tweets</a>
@@ -34,12 +35,12 @@
         <div class="grid grid-cols-1 gap-4">
             {% if tweets %}
                 {% for tweet in tweets %}
-                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 fade-in">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 mb-4 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl">
                         <div class="flex items-start space-x-4">
-                            {% if tweet.photo %}
-                                <img src="{{ tweet.photo.url }}" alt="Tweet image" class="h-72 w-72 rounded-lg object-cover"> 
-                            {% endif %}
-                            <div class="flex-1">
+                            <div class="flex-1 text-left"> <!-- Align content to the left -->
+                                {% if tweet.photo %}
+                                    <img src="{{ tweet.photo.url }}" alt="Tweet image" class="h-72 w-72 rounded-lg object-cover float-left mr-4"> <!-- Float the tweet image to the left -->
+                                {% endif %}
                                 <h3 class="text-lg font-bold text-blue-400">{{ tweet.user.username }}</h3>
                                 <p class="text-gray-300">{{ tweet.text }}</p>
                                 <div class="mt-2 flex space-x-4">
