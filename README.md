@@ -26,7 +26,7 @@
 ## Tech Stack
 - **Backend**: Django 5.x
 - **Frontend**: HTML, CSS (Tailwind CSS for styling), JavaScript
-- **Database**: Postgre =
+- **Database**: PostgreSQL
 - **Version Control**: Git, GitHub
 
 ## Installation Guide
@@ -85,9 +85,7 @@ Feel free to fork the project, submit pull requests, or report issues. Contribut
 
 ## Known Issues
  
-- When attempting to delete a tweet, a prompt should ask for confirmation: "Are you sure you want to delete this tweet?"
-
-- User authentication is not implemented yet.
+- Confrimations are not working
 
 ## License
 This project is licensed under the MIT License.
