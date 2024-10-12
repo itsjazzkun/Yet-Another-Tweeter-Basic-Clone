@@ -85,7 +85,7 @@ Feel free to fork the project, submit pull requests, or report issues. Contribut
 
 ## Known Issues
  
-- Confrimations are not working
+- Confirmations are not working
 
 ## License
 This project is licensed under the MIT License.
